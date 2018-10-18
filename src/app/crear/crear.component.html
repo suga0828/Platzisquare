@@ -1,0 +1,51 @@
+<div id="contact">
+	<div class="back">
+		<a routerLink="/lugares" id="lugares">Lugares</a> / Crear lugar
+	</div>
+	<form class="formulario">
+		<h2 class="text-center">Agrega tu negocio</h2>
+		<div class="form-group">
+			<label for="">Nombre</label>
+			<input type="text" class="form-control" placeholder="Enter the name of your business" [(ngModel)]="lugar.nombre" name="nombre"/>
+		</div>
+		<div class="form-group">
+			<label for="">Distancia</label>
+			<input type="number" class="form-control" placeholder="0" [(ngModel)]="lugar.distancia" name="distancia"/>
+		</div>
+		<div class="form-group">
+			<label for="">Cercanía</label>
+			<input type="number" class="form-control" placeholder="0" [(ngModel)]="lugar.cercania" name="cercania"/>
+		</div>
+		<div class="form-group">
+			<label for="">Dirección</label>
+				<form action="">
+					<h3>Buscar dirección en Google Maps</h3>
+					<input type="text" [formControl]="searchField" class="form-control" />
+				</form>
+				<ul class="list-group">
+					<li class="list-group-item" *ngFor="let result of results$ | async">
+						{{ result.formatted_address }}
+					</li>
+				</ul>
+			<input type="text" class="form-control" placeholder="Calle y número" [(ngModel)]="lugar.calle" name="calle"/>
+			<br>
+			<input type="text" class="form-control" placeholder="Ciudad" [(ngModel)]="lugar.ciudad" name="ciudad"/>
+			<br>
+			<input type="text" class="form-control" placeholder="Pais" [(ngModel)]="lugar.pais" name="pais"/>
+			<br>
+		</div>
+		<div class="form-group">
+			<label for="">Description</label>
+			<textarea type="text" id="description" class="form-control" placeholder="Describe your business" [(ngModel)]="lugar.description" name="description"></textarea>
+		</div>
+		<div class="form group">
+			<label for="">Plan</label>
+			<select class="form-control" [(ngModel)]="lugar.plan" name="plan">
+				<option>Pago</option>
+				<option>Gratuito</option>
+			</select>
+		</div>
+		<button class="btn btn-primary" (click)="guardarLugar()">Enviar</button>
+		<button href="" class="btn btn-dark" routerLink="lugares">Cancelar</button>
+	</form>
+</div>

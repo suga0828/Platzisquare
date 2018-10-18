@@ -1,0 +1,26 @@
+* {
+	color: whitesmoke;
+}
+
+.back {
+	padding: 10px;
+}
+
+#lugares {
+	font-weight: bold;
+}
+
+#lugares:hover {
+	text-decoration: none;
+}
+
+#contact {
+	background-image: url(../../assets/images/angular.png);
+	background-size: cover;
+	/* 100% viewport height - navbar's height */
+	height: calc(100vh - 56px)
+}
+
+button {
+	margin: 10px;
+}

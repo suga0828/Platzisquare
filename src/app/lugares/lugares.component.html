@@ -1,0 +1,45 @@
+<div class="">
+	<agm-map [latitude]="lat" [longitude]="lng">
+		<agm-marker *ngFor="let lugar of lugares; let i =index" [latitude]="lugar.lat" [longitude]="lugar.lng">
+		</agm-marker>
+	</agm-map>
+</div>
+
+<hr />
+
+<div class="container">
+	<div class="row">
+		
+		<div class="col-md-7">
+			<h2>Lugares Cercanos</h2>
+			<button routerLink="/crear/new" class="btn btn-primary">Crear nuevo negocio</button>
+			<ul class="list-group">
+				<ng-container *ngFor="let lugar of lugares; let i =index" [ngSwitch]="lugar.cercania">
+					<li [ngStyle]="{color: (lugar.activo) ? 'black' : 'grey'}" [ngClass]="{numero_par: ((i) % 2 !== 0)}" [resaltar]="lugar.plan" class="list-group-item">
+						<a routerLink="/detalle/{{lugar.id}}">
+							<h3 class="inline">{{ lugar.nombre }}</h3>
+						</a>
+						-
+						<a routerLink="/edit/{{lugar.id}}">Editar</a>
+						<br />
+						<small>Creado: {{ lugar.id | date:'short' | uppercase }}</small>
+						<p [innerHtml]="lugar.description | linkifystr"></p>
+					</li>
+				</ng-container>
+			</ul>
+		</div>
+		
+		<div class="col-md-5" [@contenedorAnimable]="state">
+			<h2>Destacados</h2>
+			<ng-container *ngFor="let lugar of lugares">
+				<div class="bg-warning padding" *ngIf="lugar.plan == 'Pago'">
+					<a routerLink="/detalle/{{lugar.id}}">
+						<h3>{{ lugar.nombre }}</h3>
+					</a>
+					<p [innerHtml]="lugar.description | linkifystr"></p>
+				</div>
+				</ng-container>
+		</div>  
+	
+	</div>
+</div>

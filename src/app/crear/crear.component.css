@@ -1,0 +1,41 @@
+* {
+	color: whitesmoke;
+}
+
+.formulario {
+	width: 50%;
+	margin: 0 auto;
+}
+
+.back {
+	padding: 10px;
+}
+
+#lugares {
+	font-weight: bold;
+}
+
+#lugares:hover {
+	text-decoration: none;
+}
+
+#contact {
+	background-image: url(../../assets/images/angular.png);
+	background-size: cover;
+	/* 100% viewport height - navbar's height */
+	height: 100vh;
+}
+
+.formulario {
+	float: right;
+	padding: 30px;
+}
+
+button {
+	margin: 10px;
+}
+
+input,
+select {
+	color: black;
+}
