@@ -27,6 +27,7 @@
     "@fortawesome/angular-fontawesome": "^0.2.1",
     "@fortawesome/fontawesome-free": "^5.4.0",
     "@ng-bootstrap/ng-bootstrap": "^3.1.0",
+    "adm-zip": "^0.4.11",
     "angular-font-awesome": "^3.1.2",
     "angular-icons": "^1.0.11",
     "angularfire2": "^5.0.2",
